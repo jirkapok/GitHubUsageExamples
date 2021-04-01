@@ -13,7 +13,9 @@ jobs:
 
       # Example page created during the build
       - name: Build
-        run: echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Empty page</title></head><body>Empty page</body></html>' > dist/index.html
+        run: |
+          mkdir -p dist
+          echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Empty page</title></head><body>Empty page</body></html>' > dist/index.html
 
       # Simulating the gh_pages branch to be the one configured in the repository options
       - name: Push dist folder
