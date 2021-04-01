@@ -1,0 +1,24 @@
+name: Gh pages
+
+on:
+  # Allow only for testing purpose from repository menu
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
+
+      # Example page created during the build
+      - name: Build
+        run: echp '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Empty page</title></head><body>Empty page</body></html>' > dist/index.html
+
+      # Simulating the gh_pages branch to be the one configured in the repository options
+      - name: Push dist folder
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+          with:
+            branch: gh-pages # The branch the action should deploy to.
+            folder: dist # The folder the action should deploy.
+            clean: true # Te get rid of all unnecessary files

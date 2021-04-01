@@ -12,8 +12,16 @@
 
 ## GitHub features
 
-* [GitHub pages](https://www.codecademy.com/articles/f1-u3-github-pages)
-* sd
+* GitHub pages
+  * [Example deployment](https://www.codecademy.com/articles/f1-u3-github-pages)
+  * [Automated deployment Action](https://github.com/marketplace/actions/deploy-to-github-pages)
+* [Packages](https://docs.github.com/en/packages/guides/package-client-guides-for-github-packages)
+* Actions
+* Wiki
+* License
+* Contributors
+* Issue templates
+* Security
 
 ## Features
 
@@ -91,4 +99,3 @@ strategy:
 
 * How and where to find provided official actions? Github.com/marketplace
 * What if you have multiple workflow files?
-
