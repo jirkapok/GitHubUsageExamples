@@ -10,19 +10,6 @@
   * [Supercharging your GitHub Workflow](https://app.pluralsight.com/library/courses/supercharging-git-workflow/table-of-contents)
   * [Building custom GitHub Actions](https://app.pluralsight.com/library/courses/building-custom-github-actions/table-of-contents)
 
-## GitHub features
-
-* GitHub pages
-  * [Example deployment](https://www.codecademy.com/articles/f1-u3-github-pages)
-  * [Automated deployment Action](https://github.com/marketplace/actions/deploy-to-github-pages)
-* [Packages](https://docs.github.com/en/packages/guides/package-client-guides-for-github-packages)
-* Actions
-* Wiki
-* License
-* Contributors
-* Issue templates
-* Security
-
 ## Features
 
 * CI
