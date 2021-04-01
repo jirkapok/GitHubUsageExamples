@@ -6,8 +6,12 @@ This is self study material as personal playground of GitHub features.
 * [Github Actions](./doc/actions/readme.md)
 * [Packages](https://docs.github.com/en/packages/guides/package-client-guides-for-github-packages)
 * Wiki
-* License
-* Contributors
+  * Enabled as feature in repository Options
+  * Editation available as separate repository, which you can clone and edit locally, its address is `https://github.com/username/repository_name.wiki.git`
+  * [Documentation](https://docs.github.com/en/communities/documenting-your-project-with-wikis/about-wikis)
+  * You can provide custom footer and sidebar
+* [License](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository)
+* [Contributors](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners)
 * Releases
 * Issue templates
 * Code security
