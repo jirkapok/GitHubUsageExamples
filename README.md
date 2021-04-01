@@ -12,8 +12,8 @@ This is self study material as personal playground of GitHub features.
   * You can provide custom footer and sidebar
 * [License](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository)
 * [Contribution guides](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file#supported-file-types)
-  * Covers code owners, code of condutct, contributing etc.
-  * codeowners file defines repository default reviewers
+  * Covers code owners, code of conduct, contributing etc.
+  * [codeowners](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners) file defines repository default reviewers
 * Sponsoring
   * [Set sponsoring button](https://docs.github.com/en/github/administering-a-repository/displaying-a-sponsor-button-in-your-repository)  
   * Enable in repository setting
