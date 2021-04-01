@@ -2,6 +2,7 @@ name: Gh pages
 
 on:
   # Allow only for testing purpose from repository menu
+  # This doesn't need token in the deploy action, when initiated from UI
   workflow_dispatch:
 
 jobs:
