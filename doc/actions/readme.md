@@ -1,7 +1,7 @@
 # GitHub Actions
 
 * Actions are added to repository as .github/workflow directory
-* actions are yaml file format
+* actions are [yaml file format](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
 * Official actions are available on [GitHub Market place](https://github.com/marketplace)
 * Multiple workflow files are understood as independent CI/CD pipelines, they can't interact
 
