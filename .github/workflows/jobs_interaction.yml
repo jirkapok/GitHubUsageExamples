@@ -32,7 +32,7 @@ jobs:
           Get-ChildItem ./downloaded
       - name: Consume
         run: |
-          type artifacts/artifact.txt
+          type downloaded/artifact.txt
 
   parallel-job:
     runs-on: ubuntu-latest
