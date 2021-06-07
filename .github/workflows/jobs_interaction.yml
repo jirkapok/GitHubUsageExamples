@@ -19,6 +19,7 @@ jobs:
 
   consume-artifact:
     runs-on: windows-latest
+    needs: generate-artifact              # Defines dependency on the generate-artifact job
     steps:
       - name: Download a single artifact
         uses: actions/download-artifact@v2
