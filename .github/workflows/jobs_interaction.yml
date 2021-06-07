@@ -1,0 +1,20 @@
+name: Jobs and artifacts
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Build
+        run: |
+          mkdir -p artifacts
+          echo 'ExampleValue' > artifact.txt
+      - name: Upload output file
+        uses: actions/upload-artifact@v2
+        with:
+          name: output-data
+          path: artifacts/artifact.txt
+
+
