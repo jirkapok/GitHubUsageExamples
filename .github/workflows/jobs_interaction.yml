@@ -4,17 +4,27 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  generate-artifact:
     runs-on: windows-latest
     steps:
       - name: Build
         run: |
           mkdir -p artifacts
-          echo 'ExampleValue' > artifact.txt
+          echo 'ExampleValue' > artifacts/artifact.txt
       - name: Upload output file
         uses: actions/upload-artifact@v2
         with:
           name: output-data
-          path: artifacts/artifact.txt
+          path: artifacts/*.txt
 
+  consume-artifact:
+    runs-on: windows-latest
+    steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: output-data
+      - name: Consume
+        run: |
+          type artifacts/artifact.txt
 
