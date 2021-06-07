@@ -17,6 +17,7 @@ jobs:
           name: output-data
           path: artifacts/*.txt
 
+  # You can only download artifacts in a workflow that were uploaded during the same workflow run.
   consume-artifact:
     runs-on: windows-latest
     needs: generate-artifact              # Defines dependency on the generate-artifact job
@@ -25,6 +26,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: output-data
+      - name: Display structure of downloaded files
+        run: |
+          Get-ChildItem .
+
       - name: Consume
         run: |
           type artifacts/artifact.txt
