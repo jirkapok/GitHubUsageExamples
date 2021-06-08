@@ -52,6 +52,8 @@ on:
 
 ## Env. variables and secrets
 
+* Can be stored on workflow, job, or step level, lower level overrides above level value
+* Env. can be stored also in environment files
 * Secrets are defined in repository options > Secrets
   * Some actions require authorization as input
   * secrets.GITHUB_TOKEN: automatically created when enabling github actions on the repository
@@ -76,6 +78,14 @@ strategy:
     node-versions: [10.x, 12.x]
     os: [ubuntu-latest, windows-2016]
 ```
+
+## Custom actions
+
+* See [Creating javascript action](https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action)
+* can be written for docker container or in plain javascript
+* They should be placed in separate repository, so you can version them as standalone application
+* Running action from the same repository is not directly supported
+
 
 ## Approval workflow
 
