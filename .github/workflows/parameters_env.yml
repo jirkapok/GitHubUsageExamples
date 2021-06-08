@@ -3,19 +3,19 @@ name: Parameters and environment
 
 on:
   workflow_dispatch:
+    # These will be visible at the UI when invoking the run workflow dialog
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
+        default: ['tagA', 'tagB' ]
 
-# These will be visible at the UI when invoking the run workflow dialog
-inputs:
-  logLevel:
-    description: 'Log level'     
-    required: true
-    default: 'warning'
-  tags:
-    description: 'Test scenario tags'
-    default: ['tagA', 'tagB' ]
-
+# see https://docs.github.com/en/actions/reference/environment-variables
 env:
-  PAYLOAD-ID: ${{ github.event.client_payload.id }}
+  BUILD-ID: ${{ env.GITHUB_RUN_NUMBER }}
 
 jobs:
   deploy:
