@@ -9,9 +9,9 @@ on:
         description: 'Log level'     
         required: true
         default: 'warning'
-      tags:
-        description: 'Test scenario tags'
-        default: ['tagA', 'tagB' ]
+    #   tags:
+    #     description: 'Test scenario tags'
+    #     default: ['tagA', 'tagB' ]
 
 # see https://docs.github.com/en/actions/reference/environment-variables
 # env:
