@@ -8,24 +8,25 @@ on:
       logLevel:
         description: 'Log level'     
         required: true
-        default: 'warning'
-    #   tags:
-    #     description: 'Test scenario tags'
-    #     default: ['tagA', 'tagB' ]
+        default: 'warning'       # value can only be a string, because they translate to env. variables
 
 # see https://docs.github.com/en/actions/reference/environment-variables
-# env:
-#  BUILD-ID: ${{ env.GITHUB_RUN_NUMBER }}
+env:
+ BUILD-TAG: 'TAGA'
 
 jobs:
   variables-usage:
     runs-on: windows-latest
+    env:                          # variable on the job level
+      JOB_LOG_LEVEL: ${{ github.event.inputs.logLevel }}
     steps:
       - name: Consume input parameters
         run: |
-          echo 'Tags provided: $tags'
-          echo 'Log level selected: $logLevel'
+          echo "Log level selected: ${{ github.event.inputs.logLevel }}"
       - name: Consume Environment variable
         run: |
-          echo 'Tags provided: $tags'
-          echo 'Log level selected: $logLevel'
+          echo "Log level selected: $env:JOB_LOG_LEVEL"
+      - name: Use default env. variable
+        run: |    # environment variable usage for powershell, in bash $GITHUB_RUN_NUMBER
+          echo "Default variable GITHUB_RUN_NUMBER: $env:GITHUB_RUN_NUMBER"
+          echo "or another format: ${env:GITHUB_RUN_NUMBER}"
