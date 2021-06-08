@@ -14,11 +14,11 @@ on:
         default: ['tagA', 'tagB' ]
 
 # see https://docs.github.com/en/actions/reference/environment-variables
-env:
-  BUILD-ID: ${{ env.GITHUB_RUN_NUMBER }}
+# env:
+#  BUILD-ID: ${{ env.GITHUB_RUN_NUMBER }}
 
 jobs:
-  deploy:
+  variables-usage:
     runs-on: windows-latest
     steps:
       - name: Consume input parameters
