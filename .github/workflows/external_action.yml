@@ -1,4 +1,4 @@
-name: Gh pages
+name: External action
 
 on:
   # Allow only for testing purpose from repository menu
