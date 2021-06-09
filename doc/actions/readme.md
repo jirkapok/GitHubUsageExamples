@@ -86,6 +86,24 @@ strategy:
 * They should be placed in separate repository, so you can version them as standalone application
 * Running action from the same repository is not directly supported
 
+## Self hosted runner
+
+* Pricing can be found in your github profile > Settings > [Billing](https://github.com/settings/billing)
+* Default runners for both linux and windows available
+* Self automatically updated and removed if not connected to github within 30 days.
+* [See also](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners)
+* Add self hosted runner in repository Settings > Actions > Runners
+* Containers:
+  * [Ubuntu](https://github.com/tcardonne/docker-github-runner)
+  * [Windows](https://github.com/cosmoconsult/github-runner-windows)
+  * See also `./runner`
+  * start the runner as
+
+```powershell
+docker build -t github-runner-windows .  # from runners directory
+# replace YourLogin/repository and YourToken values
+docker run -e GITHUBREPO_OR_ORG=YourLogin/repository -e GITHUBPAT=YourToken github-runner-windows
+```
 
 ## Approval workflow
 
