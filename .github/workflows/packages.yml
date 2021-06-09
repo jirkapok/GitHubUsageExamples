@@ -1,11 +1,16 @@
 name: Dotnet packages
 # See https://docs.github.com/en/actions/guides/building-and-testing-net
+# https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry
 
 on:
   workflow_dispatch:
 
+env:
+  NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  NUGET_REGISTRY:  https://nuget.pkg.github.com/jirkapok/index.json
+
 jobs:
-  build:
+  publish:
     runs-on: windows-latest
     strategy:
       matrix:
@@ -15,13 +20,42 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      # https://github.com/actions/setup-dotnet
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
+          source-url: ${{ env.NUGET_REGISTRY }}
       - name: Install dependencies
-        run: dotnet restore $env:PROJECTDIR
+        run: |
+          dotnet restore $env:PROJECTDIR
       - name: Build
-        run: dotnet build --configuration Release --no-restore $env:PROJECTDIR
+        run: |
+          dotnet build --configuration Release --no-restore $env:PROJECTDIR
       - name: Package
-        run: dotnet pack -p:PackageVersion=2.1.0 $env:PROJECTDIR
+        run: |
+          dotnet pack --configuration Release -p:PackageVersion=2.1.$env:GITHUB_RUN_NUMBER $env:PROJECTDIR
+      - name: Publish the package
+        run: |
+          dotnet nuget push $env:PROJECTDIR\bin\Release\*.nupkg -k $env:NUGET_AUTH_TOKEN
+
+  # consume:
+  #   runs-on: windows-latest
+  #   strategy:
+  #     matrix:
+  #       dotnet-version: [ '5.0.x' ]
+  #   env:
+  #     PROJECTDIR: 'exampleapp'
+
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+  #       uses: actions/setup-dotnet@v1.7.2
+  #       with:
+  #         dotnet-version: ${{ matrix.dotnet-version }}
+  #         source-url: ${{ env.NUGET_REGISTRY }}
+  #     - name: Install dependencies
+  #       run: dotnet restore $env:PROJECTDIR
+  #     - name: Build
+  #       run: dotnet build --configuration Release --no-restore $env:PROJECTDIR
