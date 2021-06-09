@@ -16,7 +16,11 @@ env:
 
 jobs:
   variables-usage:
-    runs-on: windows-latest
+    runs-on: ${{ matrix.os }}
+    strategy:    # multiple options to combine
+      matrix:
+        os: [ubuntu-latest, self-hosted]
+
     env:                          # variable on the job level
       JOB_LOG_LEVEL: ${{ github.event.inputs.logLevel }}
     steps:
