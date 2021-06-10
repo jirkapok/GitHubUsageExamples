@@ -91,6 +91,7 @@ strategy:
 * Pricing can be found in your github profile > Settings > [Billing](https://github.com/settings/billing)
 * Default runners for both linux and windows available
 * Self automatically updated and removed if not connected to github within 30 days.
+* [Available runners](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners)
 * [See also](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners)
 * Add self hosted runner in repository Settings > Actions > Runners
 * Containers:
