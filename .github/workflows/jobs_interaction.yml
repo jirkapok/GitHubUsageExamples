@@ -9,6 +9,8 @@ jobs:
     outputs:
       ovalue: ${{ steps.with_output.outputs.ovalue }}  # map the step output to job output
     steps:
+      # the id is necessary to be able reference the step
+      # see also https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions
       - name: Build
         id: with_output
         run: |
