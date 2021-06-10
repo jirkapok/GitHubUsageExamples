@@ -122,7 +122,8 @@ strategy:
 ```powershell
 docker build -t github-runner-windows .  # from runners directory
 # replace YourLogin/repository and YourToken values
-docker run -e GITHUBREPO_OR_ORG=YourLogin/repository -e GITHUBPAT=YourToken github-runner-windows
+docker run -d -e GITHUBREPO_OR_ORG=YourLogin/repository -e GITHUBPAT=YourToken --name=github-runner-01 github-runner-windows
+docker logs github-runner-01
 ```
 
 ## Approval workflow
