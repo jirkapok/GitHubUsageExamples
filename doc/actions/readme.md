@@ -50,14 +50,32 @@ on:
     types: [created, deleted]
 ```
 
-## Env. variables and secrets
+## Parametrization
 
-* Can be stored on workflow, job, or step level, lower level overrides above level value
-* Env. can be stored also in environment files
-* Secrets are defined in repository options > Secrets
-  * Some actions require authorization as input
-  * secrets.GITHUB_TOKEN: automatically created when enabling github actions on the repository
-    * no need to reference in workflow file
+* See `parameters_env.yml`
+* Context variables
+  * There is large number of variables already defined by github
+  * Context is defined as object accessible using dot notation
+  * There is context for workflow, job, step
+  * Some of them are also available as environment variables (e.g. GITHUB_RUN_NUMBER)
+* Environment variables
+  * Can be stored on workflow, job, or step level, lower level overrides above level value
+  * Env. can be stored also in environment files
+  * Can't be shared between jobs
+  * Changing env. value doesn't affect global value
+* Inputs and outputs
+  * Can be shared across jobs
+  * Inputs can be defined only for custom actions or from UI in workflow_dispatch or in custom actions
+  * Inputs from UI can't be arrays, because they are plain text values
+  * Outputs can be transferred from step to job and shared across job
+* Secured values should be shared using Secrets
+
+### Secrets
+
+* are defined in repository options > Secrets
+* Some actions require authorization as input
+* secrets.GITHUB_TOKEN: automatically created when enabling github actions on the repository
+  * no need to reference in workflow file
 
 ```yaml
 steps:
@@ -94,6 +112,7 @@ strategy:
 * [Available runners](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners)
 * [See also](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners)
 * Add self hosted runner in repository Settings > Actions > Runners
+* To enforce usage of concrete runner use labels
 * Containers:
   * [Ubuntu](https://github.com/tcardonne/docker-github-runner)
   * [Windows](https://github.com/cosmoconsult/github-runner-windows)
