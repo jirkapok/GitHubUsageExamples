@@ -25,12 +25,15 @@ jobs:
       JOB_LOG_LEVEL: ${{ github.event.inputs.logLevel }}
     steps:
       - name: Consume input parameters
+        shell: pwsh      # enforce the same shell on all platforms
         run: |
           echo "Log level selected: ${{ github.event.inputs.logLevel }}"
       - name: Consume Environment variable
+        shell: pwsh
         run: |
           echo "Log level selected: $env:JOB_LOG_LEVEL"
       - name: Use default env. variable
+        shell: pwsh
         run: |    # environment variable usage for powershell, in bash $GITHUB_RUN_NUMBER
           echo "Default variable GITHUB_RUN_NUMBER: $env:GITHUB_RUN_NUMBER"
           echo "or another format: ${env:GITHUB_RUN_NUMBER}"
