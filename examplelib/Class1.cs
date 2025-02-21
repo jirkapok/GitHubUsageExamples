@@ -4,6 +4,6 @@ namespace examplelib
 {
     public class Class1
     {
-        // dummy change as part of first issue
+        // dummy change as part of second issue
     }
 }
